@@ -35,7 +35,7 @@ BEGIN
 	DECLARE @age INT
 	DECLARE @now DATE = GetDate()
 
-	SET @age = (CONVERT(INT, CONVERT(CHAR(8), @now, 112)) - CONVERT(CHAR(8), @dob, 112)) / 10000
+	SET @age = DATEDIFF(year, @dob, @now)
 
 	RETURN @age
 END;
